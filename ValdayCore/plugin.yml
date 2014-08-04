@@ -1,0 +1,43 @@
+name: ValdayCore
+main: net.valdaycraft.core.Main
+version: 1.0.0_Alpha
+description: ValdayCore was programmed by @ironhippo in order to better organize and contrast the commands, events, and code in the ValdayCraft server. It was inspired after crreating classes and enums over 200 lines of code. It was then decided that to lessen the code, that ValdayCore would be made as a replacement to Essentials, and would register all needed commands and all needed events. If you have any feature suggestions, contact @ironhippo in any way possible.
+author: ironhippo
+commands:
+  gm:
+    description: Set the player's current gamemode.
+    aliases: [game, gamemode]
+  sw:
+    description: Set the schematic world.
+  god:
+    description: Make yourself unkillable
+  tpto:
+    description: Teleport to a defined entity.
+    aliases: [tp]
+  version:
+    description: Checks ValdayCore version and information
+  sethq:
+    description: Set the World Wide Spawn
+  portsvale:
+    description: Teleport to the World Wide Spawn
+  seen:
+    description: Data fetcher. All players have access.
+  time:
+    descritpion: Set the time of your current world.
+  weather:
+    description: Set the weather of your current world.
+  list:
+    description: Lists all online players
+  setspawn:
+    description: Set the spawn location for your current world.
+permissions:
+   valdaycore.*:
+     description: Gives access to all ValdayCraft commands
+     children:
+       valdaycore.tp: true
+       valdaycore.god: true
+       valdaycore.sw: true
+       valdaycore.gm: true
+       valdaycore.sethq: true
+       valdaycore.weather: true
+       valdaycore.setspawn: true
