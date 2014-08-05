@@ -7,6 +7,7 @@ import java.util.UUID;
 import net.valdaycraft.core.UUIDFetcher;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -30,7 +31,7 @@ public class ValdayCraft {
 		}
 		return id;
 	}
-	public static File getFileOf(Player player) {
+	public static File getFileOf(OfflinePlayer player) {
 		UUID id = null;
 		try {
 			id = UUIDFetcher.getUUIDOf(player.getName());
@@ -89,5 +90,51 @@ public class ValdayCraft {
 			    e.printStackTrace();
 		    }
 		}
+    }
+    public static String getRank(OfflinePlayer player) {
+    	String rank = null;
+    	UUID id = null;
+    	try {
+			id = UUIDFetcher.getUUIDOf(player.getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	if (id != null) {
+    		File f = ValdayCraft.getFileOf(player);
+    		FileConfiguration fc = YamlConfiguration.loadConfiguration(f);
+    		if (fc != null) {
+    			String staff = fc.getString("Staff");
+    			if (staff.equalsIgnoreCase("Org")) {
+    				rank = "Organization";
+    			}
+    			else if (staff.equalsIgnoreCase("World")) {
+    				rank = "World";
+    			}
+    			else if (staff.equalsIgnoreCase("Creative")) {
+    				rank = "Creative";
+    			}
+    			else if (staff.equalsIgnoreCase("RP")) {
+    				rank = "Roleplay";
+    			}
+    			else if (staff.equalsIgnoreCase("Tech")) {
+    				rank = "Tech";
+    			}
+    			else if (staff.equalsIgnoreCase("Kingdom")) {
+    				rank = "Kingdom";
+    			}
+    			else if (staff.equalsIgnoreCase("PR")) {
+    				rank = "Public " + "Relations";
+    			}
+    			else if (staff.equalsIgnoreCase("PremiumS")) {
+    				rank = "Star";
+    			}
+    			else if (staff.equalsIgnoreCase("Non") || staff == null) {
+    				rank = "Player";
+    			}
+    		}
+    	} else {
+    		System.out.println("Rank is not excepted for " + player.getName());
+    	}
+    	return rank;
     }
 }

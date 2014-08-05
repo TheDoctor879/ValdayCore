@@ -35,7 +35,7 @@ public class WorldWideS implements CommandExecutor {
 				double Z = player.getLocation().getBlockZ() + 0.5;
 				float yaw = player.getLocation().getYaw();
 				float pitch = player.getLocation().getPitch();
-				String s = ", ";
+				String s = ChatColor.GOLD + ", " + ChatColor.GREEN;
 				player.sendMessage(ChatColor.GOLD + "Spawn: " + ChatColor.GREEN + "Set location to " + X + s + Y + s + Z);
 				ServerConfig.set("SpawnWorld", player.getWorld().getName());
 				ServerConfig.set("SpawnX", X);

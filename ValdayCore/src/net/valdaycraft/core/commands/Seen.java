@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import net.valdaycraft.core.Main;
 import net.valdaycraft.core.UUIDFetcher;
+import net.valdaycraft.core.api.ValdayCraft;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -40,9 +41,9 @@ public class Seen implements CommandExecutor {
 					e.printStackTrace();
 				}
 				if (playerId != null) {
-					Player pl = (Player) p;
 					File file = new File("ValdayCraft" + File.separator + "Users" + File.separator + playerId.toString() + ".yml");
 					if (p.isOnline()) {
+						Player pl = (Player) p;
 					    FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 					    sender.sendMessage(ChatColor.AQUA + "-------" + ChatColor.GREEN + "{" + config.getString("Player Name") + ChatColor.GREEN + "}" + ChatColor.AQUA + "-------");
 					    sender.sendMessage(ChatColor.GREEN + "Online: " + ChatColor.BLUE + "Yes");
@@ -62,10 +63,13 @@ public class Seen implements CommandExecutor {
 						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.GOLD + "World");
 						}
 						if (config.getString("Staff").equalsIgnoreCase("Creative")) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.RED + "Creative");
+						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.DARK_AQUA + "Creative");
 						}
 						if (config.getString("Staff").equalsIgnoreCase("RP")) {
 						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.DARK_GREEN + "Roleplay");
+						}
+						if (config.getString("Staff").equalsIgnoreCase("Tech")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.BLUE + "Tech");
 						}
 						if (config.getString("Staff").equalsIgnoreCase("PremiumS")) {
 						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.AQUA + "[± Dedicator ±]");
@@ -83,6 +87,7 @@ public class Seen implements CommandExecutor {
 						FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 						sender.sendMessage(ChatColor.RED + "-------" + ChatColor.GREEN + "{" + config.getString("Player Name") + ChatColor.GREEN + "}" + ChatColor.RED + "-------");
 					    sender.sendMessage(ChatColor.GREEN + "Online: " + ChatColor.DARK_RED + "No");
+					    sender.sendMessage(ChatColor.GREEN + "Unique Id: " + playerId.toString());
 					    sender.sendMessage(ChatColor.GREEN + "Character: " + ChatColor.GOLD + config.getString("Roleplay Name"));
 					    sender.sendMessage(ChatColor.GREEN + "Race: " + ChatColor.GOLD + config.getString("Race"));
 					    sender.sendMessage(ChatColor.GREEN + "Banned: " + config.getString("Banned"));
@@ -92,23 +97,29 @@ public class Seen implements CommandExecutor {
 							sender.sendMessage(ChatColor.GREEN + "Block X: " + ChatColor.YELLOW + config.getDouble("Y"));
 							sender.sendMessage(ChatColor.GREEN + "Block X: " + ChatColor.AQUA + config.getDouble("Z"));
 						}
-						if (config.getString("Staff").equalsIgnoreCase("Org")) {
-					        sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.YELLOW + " [° Organization °]");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("Organization")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.YELLOW + "Organization");
 						}
-						if (config.getString("Staff").equalsIgnoreCase("World")) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.GOLD + "World");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("World")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.DARK_AQUA + "World");
 						}
-						if (config.getString("Staff").equalsIgnoreCase("Creative")) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.RED + "Creative");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("Creative")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.BLUE + "Creative");
 						}
-						if (config.getString("Staff").equalsIgnoreCase("RP")) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.DARK_GREEN + "Roleplay");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("Kingdom")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.GREEN + "Kingdom");
 						}
-						if (config.getString("Staff").equalsIgnoreCase("PremiumS")) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.AQUA + "[± Dedicator ±]");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("RP")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.GOLD + "Roleplay");
 						}
-						if (config.getString("Staff").equalsIgnoreCase("Non") || config.getString("Staff").isEmpty()) {
-						    sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.GRAY + "Player");
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("PR")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.DARK_GRAY + "Public " + ChatColor.DARK_RED + "Relations");
+						}
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("Star")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.LIGHT_PURPLE + "☼ Star");
+						}
+						if (ValdayCraft.getRank(p).equalsIgnoreCase("Player")) {
+							sender.sendMessage(ChatColor.GREEN + "Rank: " + ChatColor.WHITE + "Player");
 						}
 						try {
 							config.save(file);

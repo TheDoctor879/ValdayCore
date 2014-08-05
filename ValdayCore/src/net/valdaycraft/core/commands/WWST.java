@@ -1,6 +1,7 @@
 package net.valdaycraft.core.commands;
 
 import java.io.File;
+import java.io.IOException;
 
 import net.valdaycraft.core.Main;
 
@@ -31,7 +32,7 @@ public class WWST implements CommandExecutor {
 		if (cmd.getName().equalsIgnoreCase("portsvale")) {
 			Player p = (Player) sender;
 			String w = ServerConfig.getString("SpawnWorld");
-			World world = Bukkit.getWorld(w);
+			World world = (World) Bukkit.getWorld(w);
 			double x = ServerConfig.getDouble("SpawnX");
 			double y = ServerConfig.getDouble("SpawnY");
 			double z = ServerConfig.getDouble("SpawnZ");
@@ -39,6 +40,12 @@ public class WWST implements CommandExecutor {
 			float pitch = ServerConfig.getInt("SpawnPitch");
 			p.sendMessage(ChatColor.GOLD + "Teleporting...");
 			Location spawn = new Location(world, x, y, z, yaw, pitch);
+			try {
+				ServerConfig.save(ServerFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			p.teleport(spawn);
 		}
 		return true;

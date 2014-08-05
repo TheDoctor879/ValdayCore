@@ -1,6 +1,6 @@
 name: ValdayCore
 main: net.valdaycraft.core.Main
-version: 1.0.0_Alpha
+version: 1.0.2_Alpha
 description: ValdayCore was programmed by @ironhippo in order to better organize and contrast the commands, events, and code in the ValdayCraft server. It was inspired after crreating classes and enums over 200 lines of code. It was then decided that to lessen the code, that ValdayCore would be made as a replacement to Essentials, and would register all needed commands and all needed events. If you have any feature suggestions, contact @ironhippo in any way possible.
 author: ironhippo
 commands:
@@ -9,8 +9,12 @@ commands:
     aliases: [game, gamemode]
   sw:
     description: Set the schematic world.
+  armor:
+    description: Create your own staff.
   god:
     description: Make yourself unkillable
+  inv:
+    description: Check other player's inventory
   tpto:
     description: Teleport to a defined entity.
     aliases: [tp]
@@ -40,4 +44,7 @@ permissions:
        valdaycore.gm: true
        valdaycore.sethq: true
        valdaycore.weather: true
+       valdaycore.time: true
        valdaycore.setspawn: true
+       valdaycore.inv: true
+       valdaycore.armor

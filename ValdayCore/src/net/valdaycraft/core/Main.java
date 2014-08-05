@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 
 import net.valdaycraft.core.commands.AddSchematic;
+import net.valdaycraft.core.commands.ArmorCmd;
 import net.valdaycraft.core.commands.God;
+import net.valdaycraft.core.commands.InventoryCmd;
 import net.valdaycraft.core.commands.OnlineList;
 import net.valdaycraft.core.commands.Seen;
 import net.valdaycraft.core.commands.SetSpawn;
@@ -45,6 +47,8 @@ public class Main extends JavaPlugin {
 		getCommand("weather").setExecutor(new WeatherSet(this));
 		getCommand("list").setExecutor(new OnlineList(this));
 		getCommand("setspawn").setExecutor(new SetSpawn(this));
+		getCommand("inv").setExecutor(new InventoryCmd(this));
+		getCommand("armor").setExecutor(new ArmorCmd(this));
 		// TODO - Event Registers
 		getServer().getPluginManager().registerEvents(new DataLoader(), this);
 		// TODO - Configuration
