@@ -1,4 +1,4 @@
-package net.valdaycraft.core.commands;
+ package net.valdaycraft.core.commands;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

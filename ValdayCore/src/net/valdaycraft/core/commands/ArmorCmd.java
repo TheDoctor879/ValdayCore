@@ -54,6 +54,76 @@ public class ArmorCmd implements CommandExecutor {
 				    	player.getInventory().setLeggings(legs);
 				    	player.getInventory().setBoots(boots);
 				    }
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("Creative")) {
+				    	helmetMeta.setColor(Color.NAVY);
+				    	chestMeta.setColor(Color.NAVY);
+				    	legMeta.setColor(Color.NAVY);
+				    	bootMeta.setColor(Color.NAVY);
+				    	helmet.setItemMeta(helmetMeta);
+				    	chest.setItemMeta(chestMeta);
+				    	legs.setItemMeta(legMeta);
+				    	boots.setItemMeta(bootMeta);
+				    	player.getInventory().setHelmet(helmet);
+				    	player.getInventory().setChestplate(chest);
+				    	player.getInventory().setLeggings(legs);
+				    	player.getInventory().setBoots(boots);
+				    }
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("Tech")) {
+				    	helmetMeta.setColor(Color.AQUA);
+				    	chestMeta.setColor(Color.AQUA);
+				    	legMeta.setColor(Color.AQUA);
+				    	bootMeta.setColor(Color.AQUA);
+				    	helmet.setItemMeta(helmetMeta);
+				    	chest.setItemMeta(chestMeta);
+				    	legs.setItemMeta(legMeta);
+				    	boots.setItemMeta(bootMeta);
+				    	player.getInventory().setHelmet(helmet);
+				    	player.getInventory().setChestplate(chest);
+				    	player.getInventory().setLeggings(legs);
+				    	player.getInventory().setBoots(boots);
+				    }
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("World")) {
+				    	helmetMeta.setColor(Color.GREEN);
+				    	chestMeta.setColor(Color.GREEN);
+				    	legMeta.setColor(Color.GREEN);
+				    	bootMeta.setColor(Color.GREEN);
+				    	helmet.setItemMeta(helmetMeta);
+				    	chest.setItemMeta(chestMeta);
+				    	legs.setItemMeta(legMeta);
+				    	boots.setItemMeta(bootMeta);
+				    	player.getInventory().setHelmet(helmet);
+				    	player.getInventory().setChestplate(chest);
+				    	player.getInventory().setLeggings(legs);
+				    	player.getInventory().setBoots(boots);
+				    }
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("RP")) {
+				    	helmetMeta.setColor(Color.ORANGE);
+				    	chestMeta.setColor(Color.ORANGE);
+				    	legMeta.setColor(Color.ORANGE);
+				    	bootMeta.setColor(Color.ORANGE);
+				    	helmet.setItemMeta(helmetMeta);
+				    	chest.setItemMeta(chestMeta);
+				    	legs.setItemMeta(legMeta);
+				    	boots.setItemMeta(bootMeta);
+				    	player.getInventory().setHelmet(helmet);
+				    	player.getInventory().setChestplate(chest);
+				    	player.getInventory().setLeggings(legs);
+				    	player.getInventory().setBoots(boots);
+				    }
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("PR")) {
+				    	helmetMeta.setColor(Color.MAROON);
+				    	chestMeta.setColor(Color.MAROON);
+				    	legMeta.setColor(Color.MAROON);
+				    	bootMeta.setColor(Color.MAROON);
+				    	helmet.setItemMeta(helmetMeta);
+				    	chest.setItemMeta(chestMeta);
+				    	legs.setItemMeta(legMeta);
+				    	boots.setItemMeta(bootMeta);
+				    	player.getInventory().setHelmet(helmet);
+				    	player.getInventory().setChestplate(chest);
+				    	player.getInventory().setLeggings(legs);
+				    	player.getInventory().setBoots(boots);
+				    }
 				}
 			}
 		}

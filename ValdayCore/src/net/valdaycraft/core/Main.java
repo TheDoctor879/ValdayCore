@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import net.valdaycraft.core.commands.AddSchematic;
 import net.valdaycraft.core.commands.ArmorCmd;
+import net.valdaycraft.core.commands.BroadcastCmd;
 import net.valdaycraft.core.commands.God;
 import net.valdaycraft.core.commands.InventoryCmd;
 import net.valdaycraft.core.commands.OnlineList;
@@ -35,6 +36,7 @@ public class Main extends JavaPlugin {
 		getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Valday" + ChatColor.GREEN + "Core" + ChatColor.GRAY + ": " + ChatColor.YELLOW + "No external API's found. Loading normally...");
 		
 		// TODO - Command Register
+		getCommand("bc").setExecutor(new BroadcastCmd(this));
 		getCommand("version").setExecutor(new Version(this));
 		getCommand("sw").setExecutor(new AddSchematic(this));
 		getCommand("god").setExecutor(new God(this));

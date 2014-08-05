@@ -7,6 +7,8 @@ commands:
   gm:
     description: Set the player's current gamemode.
     aliases: [game, gamemode]
+  bc:
+    description: Send a message to all players online.
   sw:
     description: Set the schematic world.
   armor:
@@ -38,6 +40,7 @@ permissions:
    valdaycore.*:
      description: Gives access to all ValdayCraft commands
      children:
+       valdaycore.broadcast: true
        valdaycore.tp: true
        valdaycore.god: true
        valdaycore.sw: true
@@ -47,4 +50,4 @@ permissions:
        valdaycore.time: true
        valdaycore.setspawn: true
        valdaycore.inv: true
-       valdaycore.armor
+       valdaycore.armor: true
