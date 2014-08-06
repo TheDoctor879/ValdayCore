@@ -31,8 +31,7 @@ public class WWST implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("portsvale")) {
 			Player p = (Player) sender;
-			String w = ServerConfig.getString("SpawnWorld");
-			World world = (World) Bukkit.getWorld(w);
+			World world = (World) Bukkit.getServer().getWorld("Quaderia");
 			double x = ServerConfig.getDouble("SpawnX");
 			double y = ServerConfig.getDouble("SpawnY");
 			double z = ServerConfig.getDouble("SpawnZ");

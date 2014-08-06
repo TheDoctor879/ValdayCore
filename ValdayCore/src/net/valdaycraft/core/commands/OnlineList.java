@@ -28,7 +28,6 @@ public class OnlineList implements CommandExecutor {
 			    StringBuilder build = new StringBuilder();
 			    for(Player onlinePlayers : Bukkit.getOnlinePlayers()) {
 				    build.append(onlinePlayers.getName() + ", ");
-				    playerList = build.toString();
 				    Pattern pattern = Pattern.compile(", $");
 			        Matcher matcher = pattern.matcher(playerList);
 				    playerList = matcher.replaceAll("");
