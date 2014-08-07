@@ -11,6 +11,7 @@ import net.valdaycraft.core.commands.InventoryCmd;
 import net.valdaycraft.core.commands.OnlineList;
 import net.valdaycraft.core.commands.Seen;
 import net.valdaycraft.core.commands.SetSpawn;
+import net.valdaycraft.core.commands.Summon;
 import net.valdaycraft.core.commands.Teleport;
 import net.valdaycraft.core.commands.TimeSet;
 import net.valdaycraft.core.commands.ValdayMode;
@@ -36,6 +37,7 @@ public class Main extends JavaPlugin {
 		getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Valday" + ChatColor.GREEN + "Core" + ChatColor.GRAY + ": " + ChatColor.YELLOW + "No external API's found. Loading normally...");
 		
 		// TODO - Command Register
+		getCommand("summon").setExecutor(new Summon(this));
 		getCommand("bc").setExecutor(new BroadcastCmd(this));
 		getCommand("version").setExecutor(new Version(this));
 		getCommand("sw").setExecutor(new AddSchematic(this));

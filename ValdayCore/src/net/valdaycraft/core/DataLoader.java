@@ -16,8 +16,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 public class DataLoader implements Listener {
 	
 	@EventHandler
-	public void onPlayerFileLoad(PlayerQuitEvent e) {
-		Player player = e.getPlayer();
+	public void onPlayerFileLoad(PlayerQuitEvent ev) {
+		Player player = ev.getPlayer();
 		String playerName = player.getName();
 		String ipAddress = player.getAddress().getAddress().getHostAddress();
 		int x = player.getLocation().getBlockX();

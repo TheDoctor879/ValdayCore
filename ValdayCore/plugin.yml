@@ -4,6 +4,8 @@ version: 1.0.2_Alpha
 description: ValdayCore was programmed by @ironhippo in order to better organize and contrast the commands, events, and code in the ValdayCraft server. It was inspired after crreating classes and enums over 200 lines of code. It was then decided that to lessen the code, that ValdayCore would be made as a replacement to Essentials, and would register all needed commands and all needed events. If you have any feature suggestions, contact @ironhippo in any way possible.
 author: ironhippo
 commands:
+  summon:
+    description: Summon the defined mob.
   gm:
     description: Set the player's current gamemode.
     aliases: [game, gamemode]
@@ -40,6 +42,7 @@ permissions:
    valdaycore.*:
      description: Gives access to all ValdayCraft commands
      children:
+       valdaycore.summon: true
        valdaycore.broadcast: true
        valdaycore.tp: true
        valdaycore.god: true
