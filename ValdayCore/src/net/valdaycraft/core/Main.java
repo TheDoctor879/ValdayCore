@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import net.valdaycraft.core.commands.AddSchematic;
 import net.valdaycraft.core.commands.ArmorCmd;
+import net.valdaycraft.core.commands.Author;
 import net.valdaycraft.core.commands.BroadcastCmd;
 import net.valdaycraft.core.commands.God;
 import net.valdaycraft.core.commands.InventoryCmd;
@@ -27,6 +28,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	
+	public static File mySQLFile = new File("ValdayCraft" + File.separator + "SQL.yml");
+	
 	public static File config = new File("ValdayCraft" + File.separator + "config.yml");
 	
 	public static FileConfiguration serverConfig = YamlConfiguration.loadConfiguration(config);
@@ -37,6 +40,7 @@ public class Main extends JavaPlugin {
 		getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Valday" + ChatColor.GREEN + "Core" + ChatColor.GRAY + ": " + ChatColor.YELLOW + "No external API's found. Loading normally...");
 		
 		// TODO - Command Register
+		getCommand("author").setExecutor(new Author(this));
 		getCommand("summon").setExecutor(new Summon(this));
 		getCommand("bc").setExecutor(new BroadcastCmd(this));
 		getCommand("version").setExecutor(new Version(this));
@@ -56,6 +60,21 @@ public class Main extends JavaPlugin {
 		// TODO - Event Registers
 		getServer().getPluginManager().registerEvents(new DataLoader(), this);
 		// TODO - Configuration
+		if (!mySQLFile.exists()) {
+		    FileConfiguration fc = YamlConfiguration.loadConfiguration(mySQLFile);
+		    fc.set("Ip", "66.85.144.162");
+		    fc.set("User", "mcph30392");
+		    fc.set("Name", "mcph30392");
+		    fc.set("Password", "a63c6c0382");
+		    try {
+				fc.save(mySQLFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			getServer().getConsoleSender().sendMessage(ChatColor.LIGHT_PURPLE + "Valday" + ChatColor.GREEN + "Core" + ChatColor.AQUA + ": MySQL statement is standing by.");
+		}
 		serverConfig.set("Schematic", "SchematicWorld");
 		serverConfig.set("Proxy", false);
 		serverConfig.set("PvP", true);

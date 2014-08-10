@@ -29,6 +29,7 @@ public class God implements CommandExecutor {
 					Player player = (Player) sender;
 					if (gods.containsKey(player.getName())) {
 						player.sendMessage(ChatColor.YELLOW + "" + ChatColor.ITALIC + "You have lost your godlike powers.");
+						gods.remove(player.getName());
 					}
 					else if (!gods.containsKey(player.getName())) {
 						player.sendMessage(ChatColor.YELLOW + "" + ChatColor.ITALIC + "\"I am become death, destroyer of worlds.\"");

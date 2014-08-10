@@ -38,8 +38,8 @@ public class ArmorCmd implements CommandExecutor {
 				    	helmetMeta.setColor(Color.YELLOW);
 				    	bootMeta.setColor(Color.YELLOW);
 				    	if (player.getName().equalsIgnoreCase("ironhippo")) {
-				    		chestMeta.setColor(Color.AQUA);
-				    		legMeta.setColor(Color.AQUA);
+				    		chestMeta.setColor(Color.GRAY);
+				    		legMeta.setColor(Color.GRAY);
 				    	}
 				    	if (player.getName().equalsIgnoreCase("colbyc123") || player.getName().equalsIgnoreCase("FGCsparta")) {
 				    		chestMeta.setColor(Color.NAVY);
@@ -96,7 +96,7 @@ public class ArmorCmd implements CommandExecutor {
 				    	player.getInventory().setLeggings(legs);
 				    	player.getInventory().setBoots(boots);
 				    }
-				    if (ValdayCraft.getRank(player).equalsIgnoreCase("RP")) {
+				    if (ValdayCraft.getRank(player).equalsIgnoreCase("Roleplay")) {
 				    	helmetMeta.setColor(Color.ORANGE);
 				    	chestMeta.setColor(Color.ORANGE);
 				    	legMeta.setColor(Color.ORANGE);
